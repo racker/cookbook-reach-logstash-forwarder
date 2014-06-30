@@ -11,7 +11,7 @@ end
 
 package 'install logstash forwarder' do
   provider Chef::Provider::Package::Dpkg
-  source "/tmp/#{LUMBERJACK_FILE}"
+  source "#{Chef::Config[:file_cache_path]}/#{LUMBERJACK_FILE}"
   action :install
   options '--force-all'
 end
