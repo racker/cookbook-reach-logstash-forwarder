@@ -1,0 +1,10 @@
+{
+    "network": {
+        "servers": [ "<%= @collector_ip %>:<%= @forwarder_port %>" ],
+        "ssl key": "/etc/ssl/private/<%= @ssl_cert_name %>.key",
+        "ssl certificate": "/etc/ssl/certs/<%= @ssl_cert_name %>.crt",
+        "ssl ca": "/etc/ssl/certs/<%= @ssl_cert_name %>_bundle.crt",
+        "timeout": 15
+    },
+    <%= render @render_template, cookbook: @render_cookbook, local: false %>
+}
