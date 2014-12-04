@@ -1,7 +1,8 @@
 # encoding: UTF-8
 
 LUMBERJACK_VERSION = node['logstash-forwarder']['version']
-LUMBERJACK_FILE = "lumberjack_#{LUMBERJACK_VERSION}_amd64.deb"
+LUMBERJACK_FILE_PREFIX = node['logstash-forwarder']['file_prefix']
+LUMBERJACK_FILE = "#{LUMBERJACK_FILE_PREFIX}_#{LUMBERJACK_VERSION}_amd64.deb"
 LUMBERJACK_CDN = node['logstash-forwarder']['cdn_url']
 LUMBERJACK_URL = "http://#{LUMBERJACK_CDN}/#{LUMBERJACK_FILE}"
 
