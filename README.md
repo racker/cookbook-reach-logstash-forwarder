@@ -12,6 +12,10 @@ The following attributes will need to be defined:
 * ``` node['logstash-forwarder']['template'] ``` - What is the name of the template that will be included
 * ``` node['logstash-forwarder']['cookbook'] ``` - What is the name of the cookbook that the rendered template resides
 
+Additional optional attributes may be overwritten:
+* ``` node['logstash-forwarder']['version'] ``` - What version of the logstash-forwarder to install.  Default: `'0.3.1'`
+* ``` node['logstash-forwarder']['file_prefix'] ``` - The prefix of the .deb file that should be installed.  Default: `'lumberjack'`
+
 # Rendered Template
 
 The template which is to be rendered inside the /etc/lumberjack.conf file might look something like this:
