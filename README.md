@@ -14,11 +14,11 @@ The following attributes will need to be defined:
 
 Additional optional attributes may be overwritten:
 * ``` node['logstash-forwarder']['version'] ``` - What version of the logstash-forwarder to install.  Default: `'0.3.1'`
-* ``` node['logstash-forwarder']['file_prefix'] ``` - The prefix of the .deb file that should be installed.  Default: `'lumberjack'`
+* ``` node['logstash-forwarder']['file_prefix'] ``` - The prefix of the .deb file that should be installed.  Default: `'logstash-forwarder'`
 
 # Rendered Template
 
-The template which is to be rendered inside the /etc/lumberjack.conf file might look something like this:
+The template which is to be rendered inside the /etc/logstash-forwarder.conf file might look something like this:
 
 ```
 "files": [
