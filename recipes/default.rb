@@ -29,7 +29,7 @@ template '/etc/lumberjack.conf' do
   variables(
     collector_ip: node['logstash-forwarder']['collector_ip'],
     forwarder_port: node['logstash-forwarder']['port'],
-    ssl_cert_name: node['ssl_cert_name'],
+    ssl_cert_name: node['logstash-forwarder']['ssl_cert_name'],
     render_template: node['logstash-forwarder']['template'],
     render_cookbook: node['logstash-forwarder']['cookbook']
   )
