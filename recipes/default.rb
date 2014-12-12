@@ -18,6 +18,7 @@ package 'install logstash forwarder' do
 end
 
 service 'logstash-forwarder' do
+  service_name node['logstash-forwarder']['service_name']
   supports restart: true, start: true, stop: true
 end
 
