@@ -15,6 +15,7 @@ The following attributes will need to be defined:
 Additional optional attributes may be overwritten:
 * ``` node['logstash-forwarder']['version'] ``` - What version of the logstash-forwarder to install.  Default: `'0.3.1'`
 * ``` node['logstash-forwarder']['file_prefix'] ``` - The prefix of the .deb file that should be installed.  Default: `'logstash-forwarder'`
+* ``` node['logstash-forwarder']['config_file'] ``` - The configuration file that the logstash forwarder will be looking for.  Default: `'/etc/logstash-forwarder'`
 
 # Rendered Template
 
