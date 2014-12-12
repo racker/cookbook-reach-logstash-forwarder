@@ -21,7 +21,7 @@ service 'logstash-forwarder' do
   supports restart: true, start: true, stop: true
 end
 
-template '/etc/logstash-forwarder/logstash-forwarder.conf' do
+template node['logstash-forwarder']['config_file'] do
   source 'forwarder.conf.erb'
   owner 'root'
   group 'root'
