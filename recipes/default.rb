@@ -5,6 +5,7 @@ LOGSTASH_FORWARDER_FILE_PREFIX = node['logstash-forwarder']['file_prefix']
 LOGSTASH_FORWARDER_FILE = "#{LOGSTASH_FORWARDER_FILE_PREFIX}_#{LOGSTASH_FORWARDER_VERSION}_amd64.deb"
 LOGSTASH_FORWARDER_CDN = node['logstash-forwarder']['cdn_url']
 LOGSTASH_FORWARDER_URL = "http://#{LOGSTASH_FORWARDER_CDN}/#{LOGSTASH_FORWARDER_FILE}"
+LOGSTASH_FORWARDER_SERVICE = node['logstash-forwarder']['service_name']
 
 remote_file "#{Chef::Config[:file_cache_path]}/#{LOGSTASH_FORWARDER_FILE}" do
   source LOGSTASH_FORWARDER_URL
@@ -18,7 +19,7 @@ package 'install logstash forwarder' do
 end
 
 service 'logstash-forwarder' do
-  service_name node['logstash-forwarder']['service_name']
+  service_name LOGSTASH_FORWARDER_SERVICE
   supports restart: true, start: true, stop: true
 end
 
@@ -26,7 +27,7 @@ template node['logstash-forwarder']['config_file'] do
   source 'forwarder.conf.erb'
   owner 'root'
   group 'root'
-  notifies :restart, 'service[logstash-forwarder]'
+  notifies :restart, "service[#{LOGSTASH_FORWARDER_SERVICE}]"
   variables(
     collector_ip: node['logstash-forwarder']['collector_ip'],
     forwarder_port: node['logstash-forwarder']['port'],
